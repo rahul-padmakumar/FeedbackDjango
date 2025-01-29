@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hi I am feedback</h1>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>
