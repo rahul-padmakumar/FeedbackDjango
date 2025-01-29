@@ -8,11 +8,13 @@
 <body>
     <form action="/" method="POST">
         {% csrf_token %}
-        <div>
-            {{ form.user_name.label__tag}}
-            {{ form.user_name}}
-            {{ form.user_name.errors}}
-        </div>
+        {% for field in form %}
+            <div>
+                {{ field.label}}
+                {{ field }}
+                {{ field.errors}}
+            </div>
+        {% endfor %}
         <button type="submit">Send</button>
     </form>
 </body>

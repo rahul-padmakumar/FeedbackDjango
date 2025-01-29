@@ -9,5 +9,5 @@ class ReviewForm(forms.Form):
             'max_length': 'Max length should be 10'
         }
     )
-    #review = forms.CharField(label="Your Review")
-    #rating = forms.IntegerField(min_value=1, max_value=5, label="Rating")
+    review = forms.CharField(label="Your Review", max_length=200, widget=forms.Textarea)
+    rating = forms.IntegerField(min_value=1, max_value=5, label="Rating")
