@@ -8,7 +8,11 @@
 <body>
     <form action="/" method="POST">
         {% csrf_token %}
-        {{ form }}
+        <div>
+            {{ form.user_name.label__tag}}
+            {{ form.user_name}}
+            {{ form.user_name.errors}}
+        </div>
         <button type="submit">Send</button>
     </form>
 </body>
