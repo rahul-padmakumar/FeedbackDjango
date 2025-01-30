@@ -8,13 +8,7 @@ def review(req):
     if req.method == "POST":
         form = ReviewForm(req.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            review_model = ReviewModel(
-                name = data['user_name'],
-                rating = data['rating'],
-                review = data['review']
-            )
-            review_model.save()
+            form.save()
             return HttpResponseRedirect("/success")
         else:
             print(form.errors)  
