@@ -32,6 +32,7 @@ class SuccessView(TemplateView):
 class AllReview(ListView):
     template_name = "reviews/all_reviews.html"
     model = ReviewModel
+    context_object_name = "reviews"
     
 class DetailReview(TemplateView):
     template_name = "reviews/review_detail.html"
