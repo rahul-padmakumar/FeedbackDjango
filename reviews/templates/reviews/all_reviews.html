@@ -6,7 +6,7 @@
     <ul>
         {% for review in reviews %}
         <li>
-            {{review.name}} (Rating: {{review.rating}})
+            <a href="{% url "review_detail" review.id %}">{{review.name}} (Rating: {{review.rating}})</a>
         </li>
         {% endfor %}
     </ul>
