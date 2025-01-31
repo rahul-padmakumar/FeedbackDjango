@@ -4,7 +4,7 @@ from .models import ReviewModel
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic.base import TemplateView
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
@@ -34,10 +34,6 @@ class AllReview(ListView):
     model = ReviewModel
     context_object_name = "reviews"
     
-class DetailReview(TemplateView):
+class DetailReview(DetailView):
     template_name = "reviews/review_detail.html"
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        id = kwargs["id"]
-        context['review'] = ReviewModel.objects.get(id = id)
-        return context
+    model = ReviewModel
