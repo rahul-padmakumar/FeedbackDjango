@@ -33,10 +33,6 @@ class AllReview(ListView):
     template_name = "reviews/all_reviews.html"
     model = ReviewModel
     context_object_name = "reviews"
-    def get_queryset(self):
-        base_query =  super().get_queryset()
-        data = base_query.filter(rating__lt=3)
-        return data
     
 class DetailReview(TemplateView):
     template_name = "reviews/review_detail.html"
