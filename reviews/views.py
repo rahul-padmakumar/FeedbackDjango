@@ -27,3 +27,10 @@ class SuccessView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['message'] = 'Thank you'
         return context
+    
+class AllReview(TemplateView):
+    template_name = "reviews/all_reviews.html"
+    def get_context_data(self, **kwargs):
+        context =  super().get_context_data(**kwargs)
+        context['reviews'] = ReviewModel.objects.all()
+        return context
