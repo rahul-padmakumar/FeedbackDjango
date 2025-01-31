@@ -37,3 +37,4 @@ class AllReview(ListView):
 class DetailReview(DetailView):
     template_name = "reviews/review_detail.html"
     model = ReviewModel
+    context_object_name = "review"
