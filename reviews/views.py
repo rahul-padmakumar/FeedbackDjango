@@ -13,7 +13,7 @@ class ReviewView(CreateView):
     model = ReviewModel
     template_name="reviews/review.html"
     success_url="/success"
-    fields="__all__"
+    form_class=ReviewForm
         
 
 class SuccessView(TemplateView):
