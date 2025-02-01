@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views import View
 from django.http import HttpResponseRedirect
 from .forms import ProfileForm
+from .models import ProfileModel
 
 def save_file(file):
     print(file.name)
@@ -21,9 +22,10 @@ class ProfileView(View):
     def post(self, req):
         form = ProfileForm(req.POST, req.FILES)
         if form.is_valid():
-            file = req.FILES['user_image']
-            print(f"File uploaded is: {file}")
-            save_file(file)
+            model = ProfileModel(
+                image = req.FILES["user_image"]
+            )
+            model.save()
             return HttpResponseRedirect("/profiles")
         else: 
             print(f"FORM NOT{form.errors}")
