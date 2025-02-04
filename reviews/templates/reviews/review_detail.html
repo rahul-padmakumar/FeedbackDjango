@@ -4,4 +4,15 @@
     {{review.name}}
     {{review.rating}}
     {{review.review}}
+    <p> {{is_fav}} </p>
+    {% if is_fav %}
+        <p> Favorite </p>
+    {% else %}
+        <form action="/reviews/favorite" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="review_id" value="{{review.id}}">
+            <button>Favorite</button>
+        </form>
+    {% endif %}
+
 {% endblock  %}
